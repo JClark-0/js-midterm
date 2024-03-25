@@ -2,6 +2,17 @@
 const url = "https://mars.nasa.gov/rss/api/?feed=weather&category=msl&feedtype=json";
 let database = [];
 
+let display_todayDate = document.getElementById('date');
+let display_atmoCondition = document.getElementById('condition');
+let display_radiationLevel = document.getElementById('radiation');
+let display_headTemp = document.getElementById('head_temp');
+let display_groundTemp = document.getElementById('ground_temp');
+let display_currentTemp = document.getElementById('current_temp');
+
+let previousButton = document.getElementById('previous');
+let nextButton = document.getElementById('next');
+let currentDay = 0;
+
 class DayData {
 	constructor(todayDate,minTemp,maxTemp,minGroundTemp,maxGroundTemp,atmoCondition,radiationLevel) {
 		this.todayDate = todayDate;
@@ -57,13 +68,6 @@ fetch(url, { cache: 'no-store' })
 // refresh weather info
 function displayInfo(day) {
 
-	let display_todayDate = document.getElementById('date');
-	let display_atmoCondition = document.getElementById('condition');
-	let display_radiationLevel = document.getElementById('radiation');
-	let display_headTemp = document.getElementById('head_temp');
-	let display_groundTemp = document.getElementById('ground_temp');
-	let display_currentTemp = document.getElementById('current_temp');
-
 	display_todayDate.innerHTML = database[day].todayDate;
 	display_headTemp.innerHTML = database[day].headTemp();
 	display_groundTemp.innerHTML = database[day].groundTemp();
@@ -71,10 +75,7 @@ function displayInfo(day) {
 	display_radiationLevel.innerHTML = database[day].radiationLevel;
 	display_currentTemp.innerHTML = database[day].averageTemp();
 
-	//set botton status
-	let previousButton = document.getElementById('previous');
-	let nextButton = document.getElementById('next');
-
+	//set button status
 	if (day > 0) {
 		nextButton.classList.add("active");
 	} else {
@@ -88,7 +89,18 @@ function displayInfo(day) {
 	}
 }
 
-//bottom actions
-
-
-
+//button actions
+previousButton.addEventListener("click",function(e){
+	 console.log("previous") 
+	 if (currentDay < (database.length-1)){
+		currentDay++;
+		displayInfo(currentDay);
+	}
+});
+nextButton.addEventListener("click",function(e){
+	console.log("next") 
+	if (currentDay > 0){
+	   currentDay--;
+	   displayInfo(currentDay);
+   }
+});
