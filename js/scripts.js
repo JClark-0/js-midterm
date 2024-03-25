@@ -54,7 +54,9 @@ fetch(url, { cache: 'no-store' })
 
 	})
 
+// refresh weather info
 function displayInfo(day) {
+
 	let display_todayDate = document.getElementById('date');
 	let display_atmoCondition = document.getElementById('condition');
 	let display_radiationLevel = document.getElementById('radiation');
@@ -68,6 +70,25 @@ function displayInfo(day) {
 	display_atmoCondition.innerHTML = database[day].atmoCondition;
 	display_radiationLevel.innerHTML = database[day].radiationLevel;
 	display_currentTemp.innerHTML = database[day].averageTemp();
+
+	//set botton status
+	let previousButton = document.getElementById('previous');
+	let nextButton = document.getElementById('next');
+
+	if (day > 0) {
+		nextButton.classList.add("active");
+	} else {
+		nextButton.classList.remove("active");
+	}
+
+	if (day < (database.length-1)) {
+		previousButton.classList.add("active");
+	} else {
+		previousButton.classList.remove("active");
+	}
 }
+
+//bottom actions
+
 
 

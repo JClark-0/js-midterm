@@ -1,0 +1,15 @@
+h2 {
+    font-weight: bold;
+}
+button {
+    padding: 10px;
+    background-color: gray;
+    color: white;
+}
+button.active {
+    background-color: red;
+}
+#date_picker {
+    display: flex;
+    flex-direction: row;
+}
