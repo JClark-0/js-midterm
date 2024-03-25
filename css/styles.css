@@ -15,11 +15,20 @@ section {
 	flex-direction: row;
 	padding: 100px;
 	height: 100vh;
+	gap: 4%;
 }
-section div{
-	width: 50%;
+section > div{
+	width: 48%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
 }
-
+#weather{
+	padding: 20px;
+	border-radius: 10px;
+	background-color: rgba(255, 255, 255, 0.5);
+	width: 200px;
+}
 
 /* weather app styles */
 h2 {
