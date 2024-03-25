@@ -26,7 +26,7 @@ section > div{
 #weather{
 	padding: 20px;
 	border-radius: 5px;
-	background-color: rgba(0, 0, 0, 0.5);
+	background-color: rgba(0, 0, 0, 0.25);
 	color: white;
 	width: 300px;
 	height: 300px;
