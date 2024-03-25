@@ -1,6 +1,7 @@
 
 const url = "https://mars.nasa.gov/rss/api/?feed=weather&category=msl&feedtype=json";
 let database = [];
+let currentDay = 0;
 
 let display_todayDate = document.getElementById('date');
 let display_atmoCondition = document.getElementById('condition');
@@ -11,8 +12,8 @@ let display_currentTemp = document.getElementById('current_temp');
 
 let previousButton = document.getElementById('previous');
 let nextButton = document.getElementById('next');
-let currentDay = 0;
 
+// each day's data in an object
 class DayData {
 	constructor(todayDate,minTemp,maxTemp,minGroundTemp,maxGroundTemp,atmoCondition,radiationLevel) {
 		this.todayDate = todayDate;
@@ -56,10 +57,13 @@ fetch(url, { cache: 'no-store' })
 			let atmoCondition = data.soles[day].atmo_opacity;
 			let radiationLevel = data.soles[day].local_uv_irradiance_index;
 
+			//make an object for the day
 			let newData = new DayData(todayDate,minTemp,maxTemp,minGroundTemp,maxGroundTemp,atmoCondition,radiationLevel);
+			//save object into the array
 			database.push(newData);
 		}
-		
+
+		// default displaying the most recent day
 		displayInfo(0);
 		console.log(database);
 

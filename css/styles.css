@@ -1,15 +1,39 @@
+/* background image */
+#bgimg {
+	position: fixed;
+	right: 0;
+	bottom: 0;
+	min-width: 100%; 
+	min-height: 100%;
+	object-fit:cover;
+	z-index: -1;
+}
+
+/* section flex */
+section {
+	display: flex;
+	flex-direction: row;
+	padding: 100px;
+	height: 100vh;
+}
+section div{
+	width: 50%;
+}
+
+
+/* weather app styles */
 h2 {
-    font-weight: bold;
+	font-weight: bold;
 }
 button {
-    padding: 10px;
-    background-color: gray;
-    color: white;
+	padding: 10px;
+	background-color: gray;
+	color: white;
 }
 button.active {
-    background-color: red;
+	background-color: red;
 }
 #date_picker {
-    display: flex;
-    flex-direction: row;
+	display: flex;
+	flex-direction: row;
 }
