@@ -5,25 +5,6 @@ html {
 	background-color: #071319;
 }
 
-/* background image */
-#bgimg {
-	position: fixed;
-	right: 0;
-	bottom: 0;
-	min-width: 100%; 
-	min-height: 100%;
-	object-fit:cover;
-	z-index: -1;
-}
-
-#window {
-	position: fixed;
-
-
-	object-fit:cover;
-
-}
-
 /* section flex */
 
 section {
@@ -128,4 +109,19 @@ button.active {
 }
 #date_picker p {
 	width: 160px;
+}
+
+
+/* astro */
+.astro{
+	z-index: 1;
+	height: 350px;
+	display: none;
+}
+.astro.active {
+	display: block;
+}
+
+#window {
+	position: fixed;
 }

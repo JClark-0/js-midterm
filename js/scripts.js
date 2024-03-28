@@ -33,6 +33,9 @@ class DayData {
 	averageTemp() {
 		return (parseFloat(this.minTemp) + parseFloat(this.maxTemp))/2 + ' °C';
 	}
+	averageTempNum() {
+		return (parseFloat(this.minTemp) + parseFloat(this.maxTemp))/2;
+	}
 }
 
 fetch(url, { cache: 'no-store' })
@@ -81,6 +84,11 @@ function displayInfo(day) {
 	display_radiationLevel.innerHTML = database[day].radiationLevel;
 	display_currentTemp.innerHTML = database[day].averageTemp();
 
+	//is it today
+	if (day == 0) {
+		display_todayDate.innerHTML = 'TODAY';
+	}
+
 	//set button status
 	if (day > 0) {
 		nextButton.classList.add("active");
@@ -92,6 +100,28 @@ function displayInfo(day) {
 		previousButton.classList.add("active");
 	} else {
 		previousButton.classList.remove("active");
+	}
+
+	//set astro
+	let astro = document.querySelectorAll('.astro')
+
+	astro.forEach((img) => {
+		img.classList.remove("active")
+	})
+
+	let astroNormal = document.querySelector('#normal');
+	let astroBurny = document.querySelector('#burny');
+	let astroFrosty = document.querySelector('#frosty');
+
+	if ((database[day].averageTempNum()) < -40) {
+		console.log('cold');
+		astroFrosty.classList.add('active');
+	} else if ((database[day].averageTempNum()) > -35) {
+		console.log('hot');
+		astroBurny.classList.add('active');
+	} else {
+		console.log('fine');
+		astroNormal.classList.add('active');
 	}
 }
 
