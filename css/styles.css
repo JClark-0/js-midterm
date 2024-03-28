@@ -59,7 +59,7 @@ section > div:first-child{
 	display: grid;
 	grid-template-columns: repeat(2, 1fr);
 	gap: 10px;
-	width: 400px;
+	width: 450px;
 }
 #weather li{
 	padding: 10px;
@@ -125,4 +125,7 @@ button.active {
 	display: flex;
 	flex-direction: row;
 	align-items: baseline;
+}
+#date_picker p {
+	width: 160px;
 }

@@ -25,13 +25,13 @@ class DayData {
 		this.radiationLevel = radiationLevel;
 	}
 	headTemp(){
-		return this.minTemp + ' – ' + this.maxTemp;
+		return this.minTemp + ' °C → ' + this.maxTemp + ' °C';
 	}
 	groundTemp(){
-		return this.minGroundTemp + ' – ' + this.maxGroundTemp;
+		return this.minGroundTemp + ' °C → ' + this.maxGroundTemp + ' °C';
 	}
 	averageTemp() {
-		return (parseFloat(this.minTemp) + parseFloat(this.maxTemp))/2;
+		return (parseFloat(this.minTemp) + parseFloat(this.maxTemp))/2 + ' °C';
 	}
 }
 
