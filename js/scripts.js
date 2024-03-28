@@ -125,6 +125,19 @@ function displayInfo(day) {
 		console.log('fine');
 		astroNormal.classList.add('active');
 	}
+
+	//emoji
+	let radiationEmoji = document.querySelector('#radiationEmoji');
+
+	if (database[day].radiationLevel == "High") {
+		radiationEmoji.innerHTML = "☠️"
+	} else if (database[day].radiationLevel == "Moderate") {
+		radiationEmoji.innerHTML = "⚠️"
+	} else {
+		radiationEmoji.innerHTML = "😎"
+	}
+
+
 }
 
 //button actions
