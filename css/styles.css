@@ -25,6 +25,7 @@ html {
 }
 
 /* section flex */
+
 section {
 	display: flex;
 	flex-direction: row;
@@ -39,17 +40,36 @@ section > div{
 	justify-content: center;
 	align-items: center;
 }
+section > div:first-child{
+	width: 60%;
+}
 #weather{
 	padding: 30px;
 	border-radius: 5px;
-	background-color: rgba(0, 0, 0, 0.25);
+	background-color: rgba(255, 255, 255, 0.1);
 	color: white;
-	max-width: 60%;
 	min-width: 35ch;
 	text-align: center;
 	margin-bottom: 30px;
-	
+}
 
+/* weather app grid */
+
+#weather{
+	display: grid;
+	grid-template-columns: repeat(2, 1fr);
+	gap: 10px;
+}
+#weather li{
+	padding: 10px;
+	border-radius: 5px;
+	background-color: rgba(0, 0, 0, 0.25);
+}
+#weather li:first-child{
+	grid-column: 1 / span 2;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
 }
 
 /* weather app styles */
@@ -67,6 +87,7 @@ section > div{
 	display: flex;
     justify-content: center; /* Horizontal alignment */
     align-items: center; 
+	width: 100%;
 }
 
 h1 {
@@ -77,7 +98,7 @@ h1 {
 h2 {
 	font-family: monospace;
 	margin-top: 10px;
-	font-size: 24px;
+	font-size: 12px;
 }
 
 p {
