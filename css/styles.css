@@ -23,7 +23,10 @@ section > div{
 }
 section > div:first-child{
 	width: 60%;
+	display: flex;
+	flex-direction: column;
 }
+
 #weather{
 	padding: 30px;
 	border-radius: 5px;
@@ -56,7 +59,7 @@ section > div:first-child{
 
 /* weather app styles */
 
-#current_temp {
+#current_temp, #reset {
 	font-family: "Pixelify Sans", sans-serif;
 	font-weight: 400;
 	font-size: 38px;
@@ -70,6 +73,11 @@ section > div:first-child{
     justify-content: center; /* Horizontal alignment */
     align-items: center; 
 	width: 100%;
+}
+#reset{
+	width: 200px;
+	font-size: 24px;
+	border-radius: 50px;
 }
 
 h1 {

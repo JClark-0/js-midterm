@@ -13,6 +13,8 @@ let display_currentTemp = document.getElementById('current_temp');
 let previousButton = document.getElementById('previous');
 let nextButton = document.getElementById('next');
 
+let resetButton = document.getElementById('reset');
+
 // each day's data in an object
 class DayData {
 	constructor(todayDate,minTemp,maxTemp,minGroundTemp,maxGroundTemp,atmoCondition,radiationLevel) {
@@ -139,4 +141,10 @@ nextButton.addEventListener("click",function(e){
 	   currentDay--;
 	   displayInfo(currentDay);
    }
+});
+
+//reset
+resetButton.addEventListener("click",function(e){
+	   currentDay = 0;
+	   displayInfo(currentDay);
 });
