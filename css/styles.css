@@ -9,12 +9,22 @@ html {
 
 section {
 	display: flex;
-	flex-direction: row;
+	flex-direction: column;
 	padding: 20px;
 	height: 100vh;
-	row-gap: 4%;
+	row-gap: 20%;
+	align-items: center;
 	
 }
+
+@media (min-width: 1200px) {
+	section { 
+		justify-content: center;
+		row-gap: 5%;
+		flex-direction: row; 
+	}
+}
+
 section > div{
 	width: 100%;
 	display: flex;
@@ -122,14 +132,18 @@ button.active {
 
 /* astro */
 .astro{
-	z-index: 1;
-	height: 350px;
+	/* z-index: 1; */
+	/* height: 350px; */
+	max-width: 20%;
 	display: none;
 }
+
+
 .astro.active {
 	display: block;
 }
 
 #window {
 	position: fixed;
+	z-index: -1;
 }

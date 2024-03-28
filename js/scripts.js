@@ -1,8 +1,13 @@
-
+//API
 const url = "https://mars.nasa.gov/rss/api/?feed=weather&category=msl&feedtype=json";
+
+//empty database array
 let database = [];
+
+//day count default to the most recent
 let currentDay = 0;
 
+//link items from the html dom
 let display_todayDate = document.getElementById('date');
 let display_atmoCondition = document.getElementById('condition');
 let display_radiationLevel = document.getElementById('radiation');
@@ -15,7 +20,7 @@ let nextButton = document.getElementById('next');
 
 let resetButton = document.getElementById('reset');
 
-// each day's data in an object
+//store each day's data in an object
 class DayData {
 	constructor(todayDate,minTemp,maxTemp,minGroundTemp,maxGroundTemp,atmoCondition,radiationLevel) {
 		this.todayDate = todayDate;
@@ -40,11 +45,12 @@ class DayData {
 	}
 }
 
+//fetch data from API
 fetch(url, { cache: 'no-store' })
 	.then((response) => response.json()) // Return it as JSON data
 	.then((data) => { // Do stuff with the data
 
-		console.log(data);
+		// console.log(data);
 
 		//for each day
 		data.soles.forEach(day => {
@@ -64,21 +70,22 @@ fetch(url, { cache: 'no-store' })
 
 			//make an object for the day
 			let newData = new DayData(todayDate,minTemp,maxTemp,minGroundTemp,maxGroundTemp,atmoCondition,radiationLevel);
+			
 			//save object into the array
 			database.push(newData);
 			
 		});
 
-
 		// default displaying the most recent day
 		displayInfo(0);
-		console.log(database);
 
+		// console.log(database);
 	})
 
 // refresh weather info
 function displayInfo(day) {
 
+	//get data from database
 	display_todayDate.innerHTML = database[day].todayDate;
 	display_headTemp.innerHTML = database[day].headTemp();
 	display_groundTemp.innerHTML = database[day].groundTemp();
@@ -105,28 +112,31 @@ function displayInfo(day) {
 	}
 
 	//set astro
+
+	//disable all
 	let astro = document.querySelectorAll('.astro')
 
 	astro.forEach((img) => {
 		img.classList.remove("active")
 	})
 
+	//only enable one based on temperature
 	let astroNormal = document.querySelector('#normal');
 	let astroBurny = document.querySelector('#burny');
 	let astroFrosty = document.querySelector('#frosty');
 
 	if ((database[day].averageTempNum()) < -40) {
-		console.log('cold');
+		// console.log('cold');
 		astroFrosty.classList.add('active');
 	} else if ((database[day].averageTempNum()) > -35) {
-		console.log('hot');
+		// console.log('hot');
 		astroBurny.classList.add('active');
 	} else {
-		console.log('fine');
+		// console.log('fine');
 		astroNormal.classList.add('active');
 	}
 
-	//emoji
+	//radiation emoji
 	let radiationEmoji = document.querySelector('#radiationEmoji');
 
 	if (database[day].radiationLevel == "High") {
