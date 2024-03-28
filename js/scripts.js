@@ -64,27 +64,6 @@ fetch(url, { cache: 'no-store' })
 			
 		});
 
-		// for ( let day in data.soles) {
-		// 	// console.log(day);
-
-		// 	//date
-		// 	let todayDate = data.soles[day].terrestrial_date;
-
-		// 	//temp
-		// 	let minTemp = data.soles[day].min_temp;
-		// 	let maxTemp = data.soles[day].max_temp;
-		// 	let minGroundTemp = data.soles[day].min_gts_temp;
-		// 	let maxGroundTemp = data.soles[day].max_gts_temp;
-
-		// 	//other
-		// 	let atmoCondition = data.soles[day].atmo_opacity;
-		// 	let radiationLevel = data.soles[day].local_uv_irradiance_index;
-
-		// 	//make an object for the day
-		// 	let newData = new DayData(todayDate,minTemp,maxTemp,minGroundTemp,maxGroundTemp,atmoCondition,radiationLevel);
-		// 	//save object into the array
-		// 	database.push(newData);
-		// }
 
 		// default displaying the most recent day
 		displayInfo(0);
